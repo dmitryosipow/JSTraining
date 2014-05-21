@@ -21,6 +21,9 @@ var testObj = {
   ]
 };
 
+var textArea = document.getElementById('displayTxt');
+var lectorsList = document.getElementById('lectorsInfoList');
+
 function getRequest() {
   return new Promise(function(resolve, reject) {
     var request = new XMLHttpRequest();
@@ -100,18 +103,66 @@ function deleteRequest(specificId) {
   });
 }
 
+//first part
 
 getRequest().then(function(data){
-  console.log(data);
+  textArea.value+='-----Reading data-------: \n';
+  textArea.value+= data;
   return postRequest(testObj);
 }).then(function(data){
-  console.log("/////////////");
-  console.log("updating record " + data._id);
+  textArea.value+="\n -----Updating record---- " + data._id;
   return updateRequest(data._id,testObj);
 }).then(function(data){
-  console.log("/////////////");
-  console.log("deleting record " + data._id);
+  textArea.value+="\n -----Deleting record---- " + data._id;
   return deleteRequest(data._id);
+});
+
+
+function getRequestLectorInfo(name) {
+  return new Promise(function(resolve, reject) {
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://54.72.3.96:3000/attendees/' + name);
+    request.onload = function() {
+      if (request.status == 200) {
+        console.log("got info " + request.response);
+        resolve(request.response);
+      } else {
+        reject(Error(request.statusText));
+      }
+    };
+    request.onerror = function() {
+      reject(Error("Error getting data." + name));
+    };
+    request.send(); // send the request
+  });
+}
+
+//second part
+getRequest().then(function(data){
+
+  var info = JSON.parse(data);
+  var lectors = [];
+  var lectorPromises = [];
+  for(var i = 0 ; i < info.length; i++){
+    if(info[i].lector instanceof Array && lectors.indexOf(info[i].lector[0]) == -1){
+      lectors.push(info[i].lector[0]);
+      lectorPromises.push(getRequestLectorInfo(info[i].lector[0]));
+    }
+  }
+
+  Promise.all(lectorPromises).then(function(dataArr){
+    console.log(dataArr);
+    dataArr.forEach(function(data){
+      var dataObj = JSON.parse(data);
+      if(dataObj){
+        var li = document.createElement('li');
+        li.innerHTML = dataObj['full_name'] + '   (' + dataObj['email'] + ')';
+        lectorsList.appendChild(li);
+      }
+    });
+  },function(err){
+    console.log("Error during getting lectors info");
+  });
 });
 
 
