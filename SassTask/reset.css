@@ -1,0 +1,43 @@
+html, body, div, span, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,
+table, tbody, tfoot, thead, tr, th, td {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+    list-style: none outside none;
+}
+input, select, button, textarea {
+    font-size: 100%;
+    margin: 0;
+}
+input[type="text"], input[type="password"], textarea {
+    padding: 0;
+}
+sub {
+    vertical-align: sub;
+}
+sup {
+    vertical-align: super;
+}
+label, input[type="button"], input[type="submit"], button {
+    cursor: pointer;
+}
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    display: block;
+}
