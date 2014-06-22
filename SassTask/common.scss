@@ -2,9 +2,17 @@
 @import "sass/variable";
 @import "sass/mixin";
 
+html {
+  box-sizing: border-box;
+  font-family: "Arial";
+}
 
 header{
   text-align: center;
+}
+
+a{
+  text-decoration: none;
 }
 
 .logo img {
@@ -13,20 +21,27 @@ header{
   @include lessThen(medium-screens) {
     width: 240px;
   }
-  /*@include lessThen(handhelds) { width: 100% ;}
-  @include lessThen(medium-screens) { width: 125px; }
-  @include lessThen(wide-screens) { float: none; }*/
 }
 
 .navigationMenu{
   background-color: $mainColor;
   border-bottom: 4px $lightMainColor solid;
+  @include lessThen($maxScreenWidthForMenu) {
+    border-bottom: 0;
+  }
   text-align: center;
+  height: 56px;
+  @include lessThen($maxScreenWidthForMenu) {
+    height: $smallMenuHeight;
+  }
 
   ul {
-    width:$basicWidth;
-    @include lessThen(wide-screens) {
-      width: $mediumScreen;
+    width:100%;
+    @include lessThen(medium-screens) {
+      width: 440px;
+    }
+    @include lessThen($maxScreenWidthForMenu) {
+      display: none;
     }
     height: 100%;
     display: inline-block;
@@ -39,8 +54,10 @@ header{
     a{
       display: inline-block;
       vertical-align: middle;
-      text-decoration: none;
       padding: 0 25px;
+      @include lessThen(medium-screens) {
+        padding: 0 5px;
+      }
       color: white;
       text-shadow: 1px 1px 1px $lightMainColor;
       font:{
@@ -52,5 +69,63 @@ header{
       @include triangle;
     }
   }
-  height: 56px;
+
+  div{
+    @include inline-wrapper;
+    display: none;
+
+    width: 44px;
+    @include lessThen($maxScreenWidthForMenu) {
+      width: $smallMenuHeight;
+    }
+    float: left;
+    background-color: $lightMainColor;
+    @include calc(height,"100% - 2px");
+    margin: 1px;
+    a{
+      display: inline-block;
+      color: $mainColor;
+      vertical-align: middle;
+      font-size: 25px;
+    }
+    &.lookIcon{
+      float: right;
+      @include lessThen($maxScreenWidthForMenu) {
+        float: left;
+      }
+    }
+    &.mobileListIcon{
+      float: right;
+    }
+    &.aboutIcon,&.lookIcon{
+      @include lessThen(medium-screens) {
+        display: block;
+      }
+    }
+    &.pencilIcon,&.mobileListIcon{
+      @include lessThen($maxScreenWidthForMenu) {
+        display: block;
+        a{
+        font-size: 0;
+        }
+      }
+    }
+    &.mobileListIcon{
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  p{
+    color: $lightMainColor;
+    height: 100%;
+    vertical-align: middle;
+    margin: 0;
+    display: none;
+    line-height: $smallMenuHeight;
+    @include lessThen($maxScreenWidthForMenu) {
+      display: block;
+    }
+  }
+
+
 }

@@ -2,6 +2,10 @@ $smallScreen: 320px;
 $mediumScreen: 768px;
 $basicWidth: 984px;
 
+$maxScreenWidthForMenu: 540px;
+
+$smallMenuHeight: 36px;
+
 $mainColor: #6b9ad0;
 $lightMainColor: lighten($mainColor,20);
 $darkMainColor: darken($mainColor,20);
