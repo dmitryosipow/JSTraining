@@ -18,12 +18,23 @@ a{
 .logo img {
   width: 370px;
   padding: 8px 0;
+  margin-bottom: 90px;
   @include lessThen(medium-screens) {
     width: 240px;
+    margin-bottom: 70px;
+  }
+  @include lessThen($maxScreenWidthForMenu) {
+    margin-bottom: 50px;
   }
 }
 
 .navigationMenu{
+  position: absolute;
+  top: 80px;
+  @include lessThen(medium-screens) {
+    top: 50px;
+  }
+  width: 100%;
   background-color: $mainColor;
   border-bottom: 4px $lightMainColor solid;
   @include lessThen($maxScreenWidthForMenu) {
@@ -126,6 +137,45 @@ a{
       display: block;
     }
   }
+}
 
+.content{
+  @include clearfix;
+  max-width: $basicWidth;
+  width: 100%;
+  margin: 0 auto;
+  color: $fontColor;
+  aside{
+    width: 252px;
+    float: left;
+  }
+  .articles{
+    width:640px;
+    margin: 0 20px;
+    float: left;
+    img{
+      width: 100%;
+    }
+    h3 a{
+      color: darken($fontColor,15);
+    }
+    .articleInfo{
+      @include clearfix;
+      div, time {
+        float: left;
+        padding-left: 20px;
+      }
+      time{
+        margin-right: 12px;
+      }
 
+      border: {
+        color: lighten($fontColor,35);
+        top-width: 1px;
+        bottom-width: 1px;
+        style: solid;
+      }
+
+    }
+  }
 }

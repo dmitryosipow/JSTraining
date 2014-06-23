@@ -10,20 +10,31 @@ a {
 
 .logo img {
   width: 370px;
-  padding: 8px 0; }
+  padding: 8px 0;
+  margin-bottom: 90px; }
   @media only screen and (max-width: 767px) {
     .logo img {
-      width: 240px; } }
+      width: 240px;
+      margin-bottom: 70px; } }
+  @media only screen and (max-width: 555px) {
+    .logo img {
+      margin-bottom: 50px; } }
 
 .navigationMenu {
+  position: absolute;
+  top: 80px;
+  width: 100%;
   background-color: #6b9ad0;
   border-bottom: 4px #b8cfe9 solid;
   text-align: center;
   height: 56px; }
-  @media only screen and (max-width: 540px) {
+  @media only screen and (max-width: 767px) {
+    .navigationMenu {
+      top: 50px; } }
+  @media only screen and (max-width: 555px) {
     .navigationMenu {
       border-bottom: 0; } }
-  @media only screen and (max-width: 540px) {
+  @media only screen and (max-width: 555px) {
     .navigationMenu {
       height: 36px; } }
   .navigationMenu ul {
@@ -33,7 +44,7 @@ a {
     @media only screen and (max-width: 767px) {
       .navigationMenu ul {
         width: 440px; } }
-    @media only screen and (max-width: 540px) {
+    @media only screen and (max-width: 555px) {
       .navigationMenu ul {
         display: none; } }
   .navigationMenu li {
@@ -90,7 +101,7 @@ a {
       display: inline-block;
       height: 100%;
       vertical-align: middle; }
-    @media only screen and (max-width: 540px) {
+    @media only screen and (max-width: 555px) {
       .navigationMenu div {
         width: 36px; } }
     .navigationMenu div a {
@@ -100,7 +111,7 @@ a {
       font-size: 25px; }
     .navigationMenu div.lookIcon {
       float: right; }
-      @media only screen and (max-width: 540px) {
+      @media only screen and (max-width: 555px) {
         .navigationMenu div.lookIcon {
           float: left; } }
     .navigationMenu div.mobileListIcon {
@@ -108,7 +119,7 @@ a {
     @media only screen and (max-width: 767px) {
       .navigationMenu div.aboutIcon, .navigationMenu div.lookIcon {
         display: block; } }
-    @media only screen and (max-width: 540px) {
+    @media only screen and (max-width: 555px) {
       .navigationMenu div.pencilIcon, .navigationMenu div.mobileListIcon {
         display: block; }
         .navigationMenu div.pencilIcon a, .navigationMenu div.mobileListIcon a {
@@ -122,6 +133,47 @@ a {
     margin: 0;
     display: none;
     line-height: 36px; }
-    @media only screen and (max-width: 540px) {
+    @media only screen and (max-width: 555px) {
       .navigationMenu p {
         display: block; } }
+
+.content {
+  max-width: 984px;
+  width: 100%;
+  margin: 0 auto;
+  color: #69747c; }
+  .content:after {
+    clear: both;
+    content: ".";
+    display: block;
+    line-height: 0;
+    height: 0;
+    visibility: hidden; }
+  .content aside {
+    width: 252px;
+    float: left; }
+  .content .articles {
+    width: 640px;
+    margin: 0 20px;
+    float: left; }
+    .content .articles img {
+      width: 100%; }
+    .content .articles h3 a {
+      color: #464d53; }
+    .content .articles .articleInfo {
+      border-color: #c7ccd0;
+      border-top-width: 1px;
+      border-bottom-width: 1px;
+      border-style: solid; }
+      .content .articles .articleInfo:after {
+        clear: both;
+        content: ".";
+        display: block;
+        line-height: 0;
+        height: 0;
+        visibility: hidden; }
+      .content .articles .articleInfo div, .content .articles .articleInfo time {
+        float: left;
+        padding-left: 20px; }
+      .content .articles .articleInfo time {
+        margin-right: 12px; }
