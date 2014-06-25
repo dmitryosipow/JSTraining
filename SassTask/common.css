@@ -43,7 +43,7 @@ a {
     display: inline-block; }
     @media only screen and (max-width: 767px) {
       .navigationMenu ul {
-        width: 440px; } }
+        width: 438px; } }
     @media only screen and (max-width: 555px) {
       .navigationMenu ul {
         display: none; } }
@@ -160,9 +160,12 @@ a {
         max-width: 640px;
         padding: 0 20px;
         margin: 0 auto 10px;
-        width: 80%; }
+        width: 90%; }
         .content aside .sideArticle {
           display: none; } }
+    @media only screen and (max-width: 555px) {
+      .content aside {
+        display: none; } }
     .content aside h2 {
       font-size: 18px;
       color: #6794b7;
@@ -212,8 +215,14 @@ a {
         @media only screen and (max-width: 984px) {
           .content .articles article > h3, .content .articles article > div, .content .articles article > p {
             width: 80%; } }
+        @media only screen and (max-width: 555px) {
+          .content .articles article > h3, .content .articles article > div, .content .articles article > p {
+            width: 90%; } }
       .content .articles article p {
         margin-top: 10px; }
+      @media only screen and (max-width: 555px) {
+        .content .articles article {
+          margin-bottom: 55px; } }
     .content .articles img {
       width: 100%; }
     .content .articles h3 {
@@ -221,8 +230,12 @@ a {
       .content .articles h3 a {
         color: #5d676e;
         font-size: 20px; }
+      @media only screen and (max-width: 555px) {
+        .content .articles h3 {
+          background-color: #e3e6e7;
+          text-align: center; } }
     .content .articles .articleInfo {
-      border-color: #c7ccd0;
+      border-color: #e3e6e7;
       border-top-width: 1px;
       border-bottom-width: 1px;
       border-style: solid; }
@@ -237,6 +250,15 @@ a {
         float: left;
         padding: 10px 0 10px 15px;
         font-size: 12px; }
+        @media only screen and (max-width: 555px) {
+          .content .articles .articleInfo div, .content .articles .articleInfo time {
+            float: none;
+            display: inline-block; }
+            .content .articles .articleInfo div.social, .content .articles .articleInfo time.social {
+              display: block; } }
+      @media only screen and (max-width: 555px) {
+        .content .articles .articleInfo {
+          text-align: center; } }
       .content .articles .articleInfo time {
         margin-right: 12px;
         background: url("./images/time.jpg") no-repeat;
@@ -283,23 +305,60 @@ a {
           .content .articles .articleInfo .social {
             float: none;
             position: absolute;
-            right: -2px;
+            right: 0px;
             top: 0px;
             width: 50px; }
             .content .articles .articleInfo .social a {
               float: right;
               margin-bottom: 5px; }
               .content .articles .articleInfo .social a.fb {
-                background-position: -54px 0px; }
+                background-position: -52px 0px; }
+                .content .articles .articleInfo .social a.fb:hover {
+                  background-position: -52px 0px; }
               .content .articles .articleInfo .social a.goo {
                 background-position: -49px -28px; }
                 .content .articles .articleInfo .social a.goo:hover {
                   background-position: -49px -28px; }
               .content .articles .articleInfo .social a.twi {
+                background-position: -52px -56px; }
+                .content .articles .articleInfo .social a.twi:hover {
+                  background-position: -52px -56px; }
+              .content .articles .articleInfo .social a.vk {
+                background-position: -52px -84px; }
+                .content .articles .articleInfo .social a.vk:hover {
+                  background-position: -52px -84px; }
+              .content .articles .articleInfo .social a.ya {
+                background-position: -55px -112px; }
+                .content .articles .articleInfo .social a.ya:hover {
+                  background-position: -55px -112px; } }
+        @media only screen and (max-width: 555px) {
+          .content .articles .articleInfo .social {
+            width: 90%;
+            height: 25px;
+            top: 100%;
+            right: initial;
+            text-align: center;
+            padding-top: 10px; }
+            .content .articles .articleInfo .social a {
+              float: none; }
+              .content .articles .articleInfo .social a.fb {
+                background-position: -54px 0px; }
+                .content .articles .articleInfo .social a.fb:hover {
+                  background-position: -54px 0px; }
+              .content .articles .articleInfo .social a.goo {
+                background-position: -53px -28px; }
+                .content .articles .articleInfo .social a.goo:hover {
+                  background-position: -53px -28px; }
+              .content .articles .articleInfo .social a.twi {
                 background-position: -54px -56px; }
+                .content .articles .articleInfo .social a.twi:hover {
+                  background-position: -54px -56px; }
               .content .articles .articleInfo .social a.vk {
                 background-position: -54px -84px; }
+                .content .articles .articleInfo .social a.vk:hover {
+                  background-position: -54px -84px; }
               .content .articles .articleInfo .social a.ya {
-                background-position: -56px -112px; }
+                background-position: -57px -112px;
+                padding-left: 23px; }
                 .content .articles .articleInfo .social a.ya:hover {
-                  background-position: -56px -112px; } }
+                  background-position: -57px -112px; } }
