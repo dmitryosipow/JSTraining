@@ -145,30 +145,188 @@ a{
   width: 100%;
   margin: 0 auto;
   color: $fontColor;
+
   aside{
     width: 252px;
-    float: left;
+    float: right;
+    @include lessThen(wide-screens) {
+      float: none;
+      max-width: 640px;
+      padding: 0 20px;
+      margin: 0 auto 10px;
+      width: 80%;
+      .sideArticle{
+        display: none;
+      }
+    }
+    font-size: 12px;
+    margin-right: 20px;
+    h2{
+      font-size: 18px;
+      color: $darkMainColor;
+      border-bottom: 4px $darkMainColor solid;
+      &:before{
+        content:"";
+        display: inline-block;
+        width: 25px;
+        height: 22px;
+        background-color: $darkMainColor;
+        margin-bottom: -5px;
+        margin-right: 5px;
+        color: white;
+        text-align: center;
+      }
+      &.about:before{
+        content:"?";
+      }
+      &.something:before{
+        content:"!";
+      }
+    }
+    p{
+      margin-top: 10px;
+    }
+
+    .tags a{
+      display: inline-block;
+      color: white;
+      background: url("./images/bull.jpg") no-repeat right 0 $darkMainColor;
+      padding: 1px 25px 1px 5px;
+      margin: 2px 1px;
+      &:hover{
+        background-position: right -22px;
+        background-color: $lightMainColor;
+      }
+    }
   }
+
   .articles{
-    width:640px;
+    max-width:640px;
+    width: 100%;
     margin: 0 20px;
     float: left;
+    font-size: 12px;
+
+    @include lessThen(wide-screens) {
+      margin: 0 auto;
+      float: none;
+      max-width:none;
+    }
+
+    article{
+      margin-bottom: 35px;
+      position: relative;
+      & > h3, & > div, & > p{
+        max-width:640px;
+        margin: 0 auto;
+        @include lessThen(wide-screens) {
+          width: 80%;
+        }
+      }
+
+      p{
+        margin-top: 10px;
+      }
+
+    }
+
     img{
       width: 100%;
     }
-    h3 a{
-      color: darken($fontColor,15);
+    h3 {
+      padding: 10px 0;
+      a{
+        color: darken($fontColor,5);
+        font-size: 20px;
+
+      }
     }
     .articleInfo{
       @include clearfix;
       div, time {
         float: left;
-        padding-left: 20px;
+        padding: 10px 0 10px 15px;
+        font-size: 12px;
+
       }
       time{
         margin-right: 12px;
+        background: url("./images/time.jpg") no-repeat;
+        @include bgPosition(0,11px);
       }
+      .author{
+        background: url("./images/author.jpg") no-repeat;
+        @include bgPosition(0,10px);
+      }
+      .social {
+        float: right;
+        padding: 5px 0;
 
+        a {
+          background: url("./images/icons.png") no-repeat;
+          display: inline-block;
+          width: 20px;
+          height: 19px;
+          padding-left: 29px;
+          text-align: center;
+          padding-top: 5px;
+          font-size: 12px;
+          margin-left: 3px;
+          color: white;
+
+          &.fb{
+            @include bgPosition(-1px,0px);
+            @include bgHoverPosition(-54px,0px);
+          }
+          &.goo{
+            @include bgPosition(0px,-28px);
+            @include bgHoverPosition(-53px,-28px);
+          }
+          &.twi{
+            @include bgPosition(-1px,-56px);
+            @include bgHoverPosition(-54px,-56px);
+          }
+          &.vk{
+            @include bgPosition(-1px,-84px);
+            @include bgHoverPosition(-54px,-84px);
+          }
+          &.ya{
+            @include bgPosition(-4px,-112px);
+            @include bgHoverPosition(-57px,-112px);
+            padding-left: 23px;
+          }
+        }
+
+        @include lessThen(wide-screens) {
+          float: none;
+          position: absolute;
+          right: -2px;
+          top: 0px;
+          width: 50px;
+          a{
+            float: right;
+            margin-bottom: 5px;
+            &.fb{
+              @include bgPosition(-54px,0px);
+            }
+            &.goo{
+              @include bgPosition(-49px,-28px);
+              @include bgHoverPosition(-49px,-28px);
+            }
+            &.twi{
+              @include bgPosition(-54px,-56px);
+            }
+            &.vk{
+              @include bgPosition(-54px,-84px);
+            }
+            &.ya{
+              @include bgPosition(-56px,-112px);
+              @include bgHoverPosition(-56px,-112px);
+            }
+
+          }
+        }
+      }
       border: {
         color: lighten($fontColor,35);
         top-width: 1px;

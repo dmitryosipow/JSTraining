@@ -151,15 +151,76 @@ a {
     visibility: hidden; }
   .content aside {
     width: 252px;
-    float: left; }
+    float: right;
+    font-size: 12px;
+    margin-right: 20px; }
+    @media only screen and (max-width: 984px) {
+      .content aside {
+        float: none;
+        max-width: 640px;
+        padding: 0 20px;
+        margin: 0 auto 10px;
+        width: 80%; }
+        .content aside .sideArticle {
+          display: none; } }
+    .content aside h2 {
+      font-size: 18px;
+      color: #6794b7;
+      border-bottom: 4px #6794b7 solid; }
+      .content aside h2:before {
+        content: "";
+        display: inline-block;
+        width: 25px;
+        height: 22px;
+        background-color: #6794b7;
+        margin-bottom: -5px;
+        margin-right: 5px;
+        color: white;
+        text-align: center; }
+      .content aside h2.about:before {
+        content: "?"; }
+      .content aside h2.something:before {
+        content: "!"; }
+    .content aside p {
+      margin-top: 10px; }
+    .content aside .tags a {
+      display: inline-block;
+      color: white;
+      background: url("./images/bull.jpg") no-repeat right 0 #6794b7;
+      padding: 1px 25px 1px 5px;
+      margin: 2px 1px; }
+      .content aside .tags a:hover {
+        background-position: right -22px;
+        background-color: #b8cfe9; }
   .content .articles {
-    width: 640px;
+    max-width: 640px;
+    width: 100%;
     margin: 0 20px;
-    float: left; }
+    float: left;
+    font-size: 12px; }
+    @media only screen and (max-width: 984px) {
+      .content .articles {
+        margin: 0 auto;
+        float: none;
+        max-width: none; } }
+    .content .articles article {
+      margin-bottom: 35px;
+      position: relative; }
+      .content .articles article > h3, .content .articles article > div, .content .articles article > p {
+        max-width: 640px;
+        margin: 0 auto; }
+        @media only screen and (max-width: 984px) {
+          .content .articles article > h3, .content .articles article > div, .content .articles article > p {
+            width: 80%; } }
+      .content .articles article p {
+        margin-top: 10px; }
     .content .articles img {
       width: 100%; }
-    .content .articles h3 a {
-      color: #464d53; }
+    .content .articles h3 {
+      padding: 10px 0; }
+      .content .articles h3 a {
+        color: #5d676e;
+        font-size: 20px; }
     .content .articles .articleInfo {
       border-color: #c7ccd0;
       border-top-width: 1px;
@@ -174,6 +235,71 @@ a {
         visibility: hidden; }
       .content .articles .articleInfo div, .content .articles .articleInfo time {
         float: left;
-        padding-left: 20px; }
+        padding: 10px 0 10px 15px;
+        font-size: 12px; }
       .content .articles .articleInfo time {
-        margin-right: 12px; }
+        margin-right: 12px;
+        background: url("./images/time.jpg") no-repeat;
+        background-position: 0 11px; }
+      .content .articles .articleInfo .author {
+        background: url("./images/author.jpg") no-repeat;
+        background-position: 0 10px; }
+      .content .articles .articleInfo .social {
+        float: right;
+        padding: 5px 0; }
+        .content .articles .articleInfo .social a {
+          background: url("./images/icons.png") no-repeat;
+          display: inline-block;
+          width: 20px;
+          height: 19px;
+          padding-left: 29px;
+          text-align: center;
+          padding-top: 5px;
+          font-size: 12px;
+          margin-left: 3px;
+          color: white; }
+          .content .articles .articleInfo .social a.fb {
+            background-position: -1px 0px; }
+            .content .articles .articleInfo .social a.fb:hover {
+              background-position: -54px 0px; }
+          .content .articles .articleInfo .social a.goo {
+            background-position: 0px -28px; }
+            .content .articles .articleInfo .social a.goo:hover {
+              background-position: -53px -28px; }
+          .content .articles .articleInfo .social a.twi {
+            background-position: -1px -56px; }
+            .content .articles .articleInfo .social a.twi:hover {
+              background-position: -54px -56px; }
+          .content .articles .articleInfo .social a.vk {
+            background-position: -1px -84px; }
+            .content .articles .articleInfo .social a.vk:hover {
+              background-position: -54px -84px; }
+          .content .articles .articleInfo .social a.ya {
+            background-position: -4px -112px;
+            padding-left: 23px; }
+            .content .articles .articleInfo .social a.ya:hover {
+              background-position: -57px -112px; }
+        @media only screen and (max-width: 984px) {
+          .content .articles .articleInfo .social {
+            float: none;
+            position: absolute;
+            right: -2px;
+            top: 0px;
+            width: 50px; }
+            .content .articles .articleInfo .social a {
+              float: right;
+              margin-bottom: 5px; }
+              .content .articles .articleInfo .social a.fb {
+                background-position: -54px 0px; }
+              .content .articles .articleInfo .social a.goo {
+                background-position: -49px -28px; }
+                .content .articles .articleInfo .social a.goo:hover {
+                  background-position: -49px -28px; }
+              .content .articles .articleInfo .social a.twi {
+                background-position: -54px -56px; }
+              .content .articles .articleInfo .social a.vk {
+                background-position: -54px -84px; }
+              .content .articles .articleInfo .social a.ya {
+                background-position: -56px -112px; }
+                .content .articles .articleInfo .social a.ya:hover {
+                  background-position: -56px -112px; } }

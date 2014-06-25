@@ -58,3 +58,12 @@
   #{$property}: calc(#{$expression});
 }
 
+@mixin bgPosition($x, $y){
+  background-position: $x $y;
+}
+@mixin bgHoverPosition($x, $y){
+  &:hover {
+    background-position: $x $y;
+  }
+}
+
