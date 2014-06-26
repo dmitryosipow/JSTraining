@@ -362,3 +362,8 @@ a {
                 padding-left: 23px; }
                 .content .articles .articleInfo .social a.ya:hover {
                   background-position: -57px -112px; } }
+
+.fixedMenu {
+  position: fixed;
+  top: 0;
+  z-index: 10; }
