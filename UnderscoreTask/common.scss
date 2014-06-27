@@ -1,0 +1,410 @@
+
+@import "sass/variable";
+@import "sass/mixin";
+
+html {
+  box-sizing: border-box;
+  font-family: "Arial";
+}
+
+header{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+.logo img {
+  width: 370px;
+  padding: 8px 0;
+  margin-bottom: 90px;
+  @include lessThen(medium-screens) {
+    width: 240px;
+    margin-bottom: 70px;
+  }
+  @include lessThen($maxScreenWidthForMenu) {
+    margin-bottom: 50px;
+  }
+}
+
+.navigationMenu{
+  position: absolute;
+  top: 80px;
+  @include lessThen(medium-screens) {
+    top: 50px;
+  }
+  width: 100%;
+  background-color: $mainColor;
+  border-bottom: 4px $lightMainColor solid;
+  @include lessThen($maxScreenWidthForMenu) {
+    border-bottom: 0;
+  }
+  text-align: center;
+  height: 56px;
+  @include lessThen($maxScreenWidthForMenu) {
+    height: $smallMenuHeight;
+  }
+
+  ul {
+    width:100%;
+    @include lessThen(medium-screens) {
+      width: 438px;
+    }
+    @include lessThen($maxScreenWidthForMenu) {
+      display: none;
+    }
+    height: 100%;
+    display: inline-block;
+  }
+  li{
+    @include inline-wrapper;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    a{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 25px;
+      @include lessThen(medium-screens) {
+        padding: 0 5px;
+      }
+      color: white;
+      text-shadow: 1px 1px 1px $lightMainColor;
+      font:{
+        family:"ArialNarrow";
+        size: 18px;
+      }
+    }
+    &.active{
+      @include triangle;
+    }
+  }
+
+  div{
+    @include inline-wrapper;
+    display: none;
+
+    width: 44px;
+    @include lessThen($maxScreenWidthForMenu) {
+      width: $smallMenuHeight;
+    }
+    float: left;
+    background-color: $lightMainColor;
+    @include calc(height,"100% - 2px");
+    margin: 1px;
+    a{
+      display: inline-block;
+      color: $mainColor;
+      vertical-align: middle;
+      font-size: 25px;
+    }
+    &.lookIcon{
+      float: right;
+      @include lessThen($maxScreenWidthForMenu) {
+        float: left;
+      }
+    }
+    &.mobileListIcon{
+      float: right;
+    }
+    &.aboutIcon,&.lookIcon{
+      @include lessThen(medium-screens) {
+        display: block;
+      }
+    }
+    &.pencilIcon,&.mobileListIcon{
+      @include lessThen($maxScreenWidthForMenu) {
+        display: block;
+        a{
+        font-size: 0;
+        }
+      }
+    }
+    &.mobileListIcon{
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  p{
+    color: $lightMainColor;
+    height: 100%;
+    vertical-align: middle;
+    margin: 0;
+    display: none;
+    line-height: $smallMenuHeight;
+    @include lessThen($maxScreenWidthForMenu) {
+      display: block;
+    }
+  }
+}
+
+.content{
+  @include clearfix;
+  max-width: $basicWidth;
+  width: 100%;
+  margin: 0 auto;
+  color: $fontColor;
+
+  aside{
+    width: 252px;
+    float: right;
+    @include lessThen(wide-screens) {
+      float: none;
+      max-width: 640px;
+      padding: 0 20px;
+      margin: 0 auto 10px;
+      width: 90%;
+      .sideArticle{
+        display: none;
+      }
+    }
+    @include lessThen($maxScreenWidthForMenu) {
+      display: none;
+    }
+    font-size: 12px;
+    margin-right: 20px;
+    h2{
+      font-size: 18px;
+      color: $darkMainColor;
+      border-bottom: 4px $darkMainColor solid;
+      &:before{
+        content:"";
+        display: inline-block;
+        width: 25px;
+        height: 22px;
+        background-color: $darkMainColor;
+        margin-bottom: -5px;
+        margin-right: 5px;
+        color: white;
+        text-align: center;
+      }
+      &.about:before{
+        content:"?";
+      }
+      &.something:before{
+        content:"!";
+      }
+    }
+    p{
+      margin-top: 10px;
+    }
+
+    .tags a{
+      display: inline-block;
+      color: white;
+      background: url("./images/bull.jpg") no-repeat right 0 $darkMainColor;
+      padding: 1px 25px 1px 5px;
+      margin: 2px 1px;
+      &:hover{
+        background-position: right -22px;
+        background-color: $lightMainColor;
+      }
+    }
+  }
+
+  .articles{
+    max-width:640px;
+    width: 100%;
+    margin: 0 20px;
+    float: left;
+    font-size: 12px;
+
+    @include lessThen(wide-screens) {
+      margin: 0 auto;
+      float: none;
+      max-width:none;
+    }
+
+    article{
+      margin-bottom: 35px;
+      position: relative;
+      & > h3, & > div, & > p{
+        max-width:640px;
+        margin: 0 auto;
+        @include lessThen(wide-screens) {
+          width: 80%;
+        }
+        @include lessThen($maxScreenWidthForMenu) {
+          width: 90%;
+        }
+      }
+
+      p{
+        margin-top: 10px;
+      }
+      @include lessThen($maxScreenWidthForMenu) {
+        margin-bottom: 55px;
+      }
+    }
+
+    img{
+      width: 100%;
+    }
+    h3 {
+      padding: 10px 0;
+      a{
+        color: darken($fontColor,5);
+        font-size: 20px;
+
+      }
+      @include lessThen($maxScreenWidthForMenu) {
+        background-color: lighten($fontColor,45);
+        text-align: center;
+      }
+    }
+
+
+
+    .articleInfo{
+      @include clearfix;
+      div, time {
+        float: left;
+        padding: 10px 0 10px 15px;
+        font-size: 12px;
+        @include lessThen($maxScreenWidthForMenu) {
+          float: none;
+          display: inline-block;
+          &.social{
+            display: block;
+          }
+        }
+      }
+
+      @include lessThen($maxScreenWidthForMenu) {
+        text-align: center;
+      }
+
+      time{
+        margin-right: 12px;
+        background: url("./images/time.jpg") no-repeat;
+        @include bgPosition(0,11px);
+      }
+      .author{
+        background: url("./images/author.jpg") no-repeat;
+        @include bgPosition(0,10px);
+      }
+      .social {
+        float: right;
+        padding: 5px 0;
+
+        a {
+          background: url("./images/icons.png") no-repeat;
+          display: inline-block;
+          width: 20px;
+          height: 19px;
+          padding-left: 29px;
+          text-align: center;
+          padding-top: 5px;
+          font-size: 12px;
+          margin-left: 3px;
+          color: white;
+
+          &.fb{
+            @include bgPosition(-1px,0px);
+            @include bgHoverPosition(-54px,0px);
+          }
+          &.goo{
+            @include bgPosition(0px,-28px);
+            @include bgHoverPosition(-53px,-28px);
+          }
+          &.twi{
+            @include bgPosition(-1px,-56px);
+            @include bgHoverPosition(-54px,-56px);
+          }
+          &.vk{
+            @include bgPosition(-1px,-84px);
+            @include bgHoverPosition(-54px,-84px);
+          }
+          &.ya{
+            @include bgPosition(-4px,-112px);
+            @include bgHoverPosition(-57px,-112px);
+            padding-left: 23px;
+          }
+        }
+
+        @include lessThen(wide-screens) {
+          float: none;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          width: 50px;
+          a{
+            float: right;
+            margin-bottom: 5px;
+            &.fb{
+              @include bgPosition(-52px,0px);
+              @include bgHoverPosition(-52px,0px);
+            }
+            &.goo{
+              @include bgPosition(-49px,-28px);
+              @include bgHoverPosition(-49px,-28px);
+            }
+            &.twi{
+              @include bgPosition(-52px,-56px);
+              @include bgHoverPosition(-52px,-56px);
+            }
+            &.vk{
+              @include bgPosition(-52px,-84px);
+              @include bgHoverPosition(-52px,-84px);
+            }
+            &.ya{
+              @include bgPosition(-55px,-112px);
+              @include bgHoverPosition(-55px,-112px);
+            }
+
+          }
+        }
+
+
+
+        @include lessThen($maxScreenWidthForMenu) {
+          width: 90%;
+          height: 25px;
+          top: 100%;
+          right: initial;
+          text-align: center;
+          padding-top: 10px;
+          a{
+            float: none;
+            &.fb{
+              @include bgPosition(-54px,0px);
+              @include bgHoverPosition(-54px,0px);
+            }
+            &.goo{
+              @include bgPosition(-53px,-28px);
+              @include bgHoverPosition(-53px,-28px);
+            }
+            &.twi{
+              @include bgPosition(-54px,-56px);
+              @include bgHoverPosition(-54px,-56px);
+            }
+            &.vk{
+              @include bgPosition(-54px,-84px);
+              @include bgHoverPosition(-54px,-84px);
+            }
+            &.ya{
+              @include bgPosition(-57px,-112px);
+              @include bgHoverPosition(-57px,-112px);
+              padding-left: 23px;
+            }
+          }
+        }
+
+      }
+      border: {
+        color: lighten($fontColor,45);
+        top-width: 1px;
+        bottom-width: 1px;
+        style: solid;
+      }
+
+    }
+  }
+}
+
+.fixedMenu{
+  position: fixed;
+  top:0;
+  z-index: 10;
+}

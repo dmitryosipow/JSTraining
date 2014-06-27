@@ -1,0 +1,69 @@
+@mixin lessThen($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $smallScreen) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (max-width: $mediumScreen - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (max-width: $basicWidth) { @content; }
+  }
+  @else {
+    @media only screen and (max-width: $media) { @content; }
+  }
+}
+
+@mixin clearfix{
+  &:after{
+    clear: both;
+    content: ".";
+    display: block;
+    line-height: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+@mixin inline-wrapper {
+  display: block;
+  font-size: 0;
+  &:after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+@mixin triangle {
+  &:before {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: $mainColor;
+    border-bottom: $lightMainColor 4px solid;
+    border-right: $lightMainColor 4px solid;
+    @include calc(left,"50% - 6px");
+    bottom: -9px;
+    transform: scale(1.5, 1) rotate(45deg);
+    -webkit-transform: scale(1.5, 1) rotate(45deg);
+  }
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin bgPosition($x, $y){
+  background-position: $x $y;
+}
+@mixin bgHoverPosition($x, $y){
+  &:hover {
+    background-position: $x $y;
+  }
+}
+
