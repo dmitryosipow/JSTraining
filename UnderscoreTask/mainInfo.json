@@ -1,0 +1,21 @@
+{
+  "navigationMenu":
+    [
+      {"title": "javascript"},
+      {"title": "css"},
+      {"title": "latest"},
+      {"title": "html"},
+      {"title": "design"}
+    ],
+  "sideInfo":[
+    {
+      "title": "About",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe utveniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!"
+    },
+    {
+      "title": "Something",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe utveniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!"
+
+    }
+  ]
+}

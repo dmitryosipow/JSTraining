@@ -76,7 +76,7 @@ a{
         size: 18px;
       }
     }
-    &.active{
+    &.selected{
       @include triangle;
     }
   }
