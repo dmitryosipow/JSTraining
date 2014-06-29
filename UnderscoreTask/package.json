@@ -1,0 +1,11 @@
+{
+  "name": "My App",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "N/A",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "^0.5.0"
+  }
+}
